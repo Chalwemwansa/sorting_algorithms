@@ -12,6 +12,7 @@ void quick_sort(int *array, size_t size)
 	int first = 0, last = (int)size;
 
 	sort_array(array, first, last, size);
+	print_array((const int *)array, size);
 }
 
 /**
@@ -25,30 +26,32 @@ void quick_sort(int *array, size_t size)
  */
 void sort_array(int *array, int first, int last, size_t size)
 {
-	int pivot = last - 1, i = first - 1, j, temp;
+	int pivot, i = first - 1, j, temp, flag = 0;
 
 	if (first != last)
 	{
-		for (j = first; j < last - 1; j++)
+		for (j = first; j < last; j++)
 		{
-			if (array[j] < array[pivot])
+			if (array[j] < array[last - 1])
 			{
-				++i;
+				i = i + 1;
 				if (i != j)
 				{
 					temp = array[i];
 					array[i] = array[j];
 					array[j] = temp;
-					print_array((const int *)array, size);
 				}
+				flag = 1;
 			}
 		}
-		pivot = ++i;
+		if (flag == 1)
+			print_array((const int *)array, size);
+		pivot = i + 1;
 		temp = array[pivot];
 		array[pivot] = array[last - 1];
 		array[last - 1] = temp;
-		sort_array(array, pivot + 1, last, size);
 		sort_array(array, first, pivot, size);
+		sort_array(array, pivot + 1, last, size);
 	}
 	else
 		return;
