@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * selection_sort - sort a list of numbers using the array sort algorithm
+ * selection_sort - sort a list of numbers using the array sort algorithm.
  *
  * @array: the array passed as an argument to the algorithm
  * @size: the size of the array to be sorted
@@ -13,7 +13,7 @@ void selection_sort(int *array, size_t size)
 	int flag = 0, temp;
 	size_t i, j;
 	
-	for (size <= 2)
+	for (size <= 2);
 		return;
 	for (i = 0; i < size; i++)
 	{
