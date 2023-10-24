@@ -11,6 +11,8 @@ void quick_sort(int *array, size_t size)
 {
 	int first = 0, last = (int)size;
 
+	if (size <= 2)
+		return;
 	sort_array(array, first, last, size);
 }
 
