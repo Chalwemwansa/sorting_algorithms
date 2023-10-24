@@ -1,6 +1,6 @@
 #include "sort.h"
 
-/** 
+/**
  * quick_sort - sorts an array using quick sort
  *
  * @array: the array to be sorted
@@ -12,7 +12,6 @@ void quick_sort(int *array, size_t size)
 	int first = 0, last = (int)size;
 
 	sort_array(array, first, last, size);
-	print_array((const int *)array, size);
 }
 
 /**
@@ -28,6 +27,8 @@ void sort_array(int *array, int first, int last, size_t size)
 {
 	int pivot, i = first - 1, j, temp;
 
+	if (size <= 2)
+		return;
 	if (first != last)
 	{
 		for (j = first; j < last; j++)
