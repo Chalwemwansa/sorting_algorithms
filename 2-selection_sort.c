@@ -31,5 +31,7 @@ void selection_sort(int *array, size_t size)
 			array[temp] = flag;
 			print_array((const int *)array, size);
 		}
+		else
+			break;
 	}
 }
