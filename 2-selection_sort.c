@@ -12,13 +12,8 @@ void selection_sort(int *array, size_t size)
 {
 	int flag = 0, temp;
 	size_t i, j;
-<<<<<<< HEAD
 
 	if (size <= 2)
-=======
-	
-	for (size <= 2);
->>>>>>> 4fbb62fc5ae519ab93b020187ab56e9af9a202c5
 		return;
 	for (i = 0; i < size; i++)
 	{
