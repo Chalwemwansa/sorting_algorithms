@@ -8,15 +8,14 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *temp = *list;
-	listint_t *hold, *hold1, *hold3;
+	listint_t *temp, *hold, *hold1, *hold3;
 	int flag = 1;
 
 	if (list == NULL)
 		return;
-	while (flag != 0)
+	temp = *list;
+	while (flag-- != 0)
 	{
-		flag = 0;
 		while (*list != NULL && (**list).next != NULL)
 		{
 			if ((**list).n > ((**list).next)->n)
@@ -30,10 +29,7 @@ void insertion_sort_list(listint_t **list)
 				(**list).prev = hold3;
 				hold3 = *list;
 				if (hold != NULL)
-				{
-					*list = hold;
-					(**list).next = hold3->prev;
-				}
+					(*hold).next = hold3->prev;
 				else
 					temp = hold3->prev;
 				if (hold1 != NULL)
