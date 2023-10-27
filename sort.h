@@ -26,5 +26,6 @@ void quick_sort(int *array, size_t size);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void sort_array(int *array, int first, int last, size_t size);
+void prn(int *array, int first, int last, int pivot, size_t size);
 
 #endif

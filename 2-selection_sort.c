@@ -10,16 +10,13 @@
 
 void selection_sort(int *array, size_t size)
 {
-	int flag = 0, temp;
-	size_t i, j;
+	int flag = 0, temp, i, j, max = (int)size;
 
-	if (size <= 2)
-		return;
-	for (i = 0; i < size; i++)
+	for (i = 0; i < max; i++)
 	{
 		flag = 1;
 		temp = i;
-		for (j = i; j < size; j++)
+		for (j = i; j < max; j++)
 		{
 			if (array[temp] > array[j])
 			{
@@ -34,7 +31,5 @@ void selection_sort(int *array, size_t size)
 			array[temp] = flag;
 			print_array((const int *)array, size);
 		}
-		else
-			break;
 	}
 }

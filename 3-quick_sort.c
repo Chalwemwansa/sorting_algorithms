@@ -11,9 +11,40 @@ void quick_sort(int *array, size_t size)
 {
 	int first = 0, last = (int)size;
 
-	if (size <= 2)
-		return;
-	sort_array(array, first, last, size);
+	prn(array, first, last, -1, size);
+}
+
+/**
+ * my_function - prints the array and also calls
+ *
+ * @first: the first element
+ * @last: the last element
+ * @pivot: the pivot
+ * @size: the size of the array in total
+ * @flag: checksss if array has been swapped or not
+ * Return: void
+ */
+void prn(int *array, int first, int last, int pivot, size_t size)
+{
+	sort_array(array, first, pivot, size);
+	sort_array(array, pivot + 1, last, size);
+}
+
+/**
+ * sort_me - sorts an array
+ *
+ * @array: the array to be sorted
+ * @i: the value to swap with
+ * @j: value to swap i with
+ * Return: void
+ */
+void sort_me(int *array, int i, int j)
+{
+	int temp;
+
+	temp = array[i];
+	array[i] = array[j];
+	array[j] = temp;
 }
 
 /**
@@ -29,9 +60,7 @@ void sort_array(int *array, int first, int last, size_t size)
 {
 	int pivot, i = first - 1, j, temp;
 
-	if (size <= 2)
-		return;
-	if (first != last)
+	if (first < last)
 	{
 		for (j = first; j < last; j++)
 		{
@@ -40,19 +69,18 @@ void sort_array(int *array, int first, int last, size_t size)
 				i = i + 1;
 				if (i != j)
 				{
-					temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
+					sort_me(array, i, j);
 					print_array((const int *)array, size);
 				}
 			}
+
 		}
+		print_array((const int *)array, size);
 		pivot = i + 1;
 		temp = array[pivot];
 		array[pivot] = array[last - 1];
 		array[last - 1] = temp;
-		sort_array(array, first, pivot, size);
-		sort_array(array, pivot + 1, last, size);
+		prn(array, first, last, pivot, size);
 	}
 	else
 		return;

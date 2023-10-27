@@ -12,6 +12,8 @@ void insertion_sort_list(listint_t **list)
 	listint_t *hold, *hold1, *hold3;
 	int flag = 1;
 
+	if (list == NULL)
+		return;
 	while (flag != 0)
 	{
 		flag = 0;
